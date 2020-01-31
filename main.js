@@ -21,11 +21,13 @@ function updateGoldCount() {
     currentGoldCount = 0
   }
 
+  parrotReady()
   canonReady()
   maidenReady()
+  shipReady()
   maidenNotReady()
-  canontNotReady()
-  parrotReady()
+  canonNotReady()
+  shipNotReady()
 }
 
 //PARROT
@@ -79,7 +81,7 @@ function updateCanonCount() {
   document.getElementById("canon-total").innerHTML = canonTemplate
 }
 
-function canontNotReady() {
+function canonNotReady() {
   if (currentGoldCount < canon.cost) {
     document.getElementById("buy-canon").classList.add("invisible")
   }
@@ -133,11 +135,12 @@ function buyShip() {
   setInterval(shipFire, 1000)
 
   currentGoldCount = currentGoldCount - ship.cost
+  updateGoldCount()
 
   ship.total++
   updateShipCount()
 
-  updateGoldCount()
+
 
   ship.cost = ship.cost + 150
 }
@@ -153,7 +156,7 @@ function updateShipCount() {
 }
 
 function shipNotReady() {
-  if (currentGoldCount < maiden.cost) {
-    document.getElementById("buy-maiden").classList.add("invisible")
+  if (currentGoldCount < ship.cost) {
+    document.getElementById("buy-ship").classList.add("invisible")
   }
 }

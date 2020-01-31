@@ -14,15 +14,15 @@
 <body>
   <header class="container-fluid">
     <div class="row">
-      <div class="col-12 bg-dark text-danger text-center ">
-        Pirate Pillagers!
+      <div class="col-12 bg-dark text-danger text-center p-1">
+        <h1>Pirate Pillagers!</h1>
       </div>
     </div>
   </header>
 
   <main class="container-fluid">
     <div class="row">
-      <div class="col-12 col-md-5">
+      <div class="col-12 col-md-5 ">
         <div class="row">
           <div class="col-12 text-center">
             <img src="./gold-coin.png" class="gold-coin"><span class="gold-counter" id="gold-count">
@@ -30,9 +30,9 @@
             </span>
           </div>
           <div class="col-12 text-center">
-            <button class="btn transparant" onclick="pillageIsland()">
-              <img src="./treasure-island.jpg" alt="pirate ship" id="treasure-island" class="island"
-                title="Pillage!"></button>
+            <button class="btn transparant island border-0" onclick="pillageIsland()">
+              <img src="./treasure-island.jpg" alt="pirate ship" id="treasure-island" class="island" title="Pillage!">
+            </button>
           </div>
         </div>
       </div>
@@ -66,10 +66,15 @@
                 <button class="invisible btn btn-dark" id="buy-maiden" onclick="buyMaiden()">Buy Maiden</button>
               </div>
               <div class="col-12">
-                <img src="./pirate-ship-1.png" class="pirate-ship" title="Generates 5 GPS">
+                <img src="./pirate-ship-1.png" class="pirate-ship" title="Generates 10 GPS">
                 <button class="invisible btn btn-dark" id="buy-ship" onclick="buyShip()">Buy Ship</button>
               </div>
             </div>
+          </div>
+          <div class="col-12 card text-center">
+            <h4>Pillage the island for gold!</h4>
+            <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each thing you buy can help you
+              loot more gold.</h5>
           </div>
         </div>
       </div>
@@ -77,6 +82,16 @@
     </div>
 
   </main>
+
+  <footer class="container-fluid bg-dark text-white text-center">
+    <div class="row">
+      <div class="col-12 p-1"></div>
+      <div class="col-12">
+        <h4>Built With Love by</h4>
+        <h4 class="text-danger">Kristina Todd</h4>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
