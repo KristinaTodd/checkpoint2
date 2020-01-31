@@ -24,29 +24,38 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <div class="row">
-          <div class="col-12 text-center">
-            <img src="./gold-coin.png" class="gold-coin">
+          <div class="col-12 text-center" id="gold-count">
+            <span class="gold-counter"><img src="./gold-coin.png" class="gold-coin">0</span>
           </div>
           <div class="col-12 text-center">
-            <img src="./pirate-ship-1.png" alt="pirate ship" id="pirate-ship" class="pirate-ship" title="Pillage!">
+            <button class="btn transparant" onclick="pillageIsland()">
+              <img src="./treasure-island.jpg" alt="pirate ship" id="treasure-island" class="island"
+                title="Pillage!"></button>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-6">
         <div class="row">
-          <div class="col-12 col-md-6">Here It Shows Current Mods
+          <div class="col-12 col-md-6">
+            <h5 class="text-center">Your Arsenal</h5>
             <div class="row">
-              <div class="col-6">Mod 1</div>
-              <div class="col-6">Mod 2</div>
+              <div class="col-12 "><img src="./canon.png" class="canon"> x <span id="canon-total"> 0 </span></div>
+              <div class="col-12"><img src="./pirate-maiden.png" class="pirate-maiden"> x <span id="maiden-total"> 0
+                </span></div>
             </div>
           </div>
-          <div class="col-12 col-md-6">Here It Shows Purchasble Mods
+          <div class="col-12 col-md-6">
+            <h5 class="text-center">Shoppe</h5>
             <div class="row">
-              <div class="col-6">
-                <img src="./canon.png" class="canon"><button>Buy Canon</button>
+              <div class="col-12 text-center">
+                <img src="./canon.png" class="canon"><button class="invisible btn btn-dark" id="buy-canon"
+                  onclick="buyCanon()">Buy
+                  Canon</button>
               </div>
-              <div class="col-6">
-                <img src="./pirate-maiden.png" class="pirate-maiden"><button>Buy Maiden</button>
+              <div class="col-12 text-center">
+                <img src="./pirate-maiden.png" class="pirate-maiden"><button class="invisible btn btn-dark"
+                  id="buy-maiden" onclick="buyMaiden()">Buy
+                  Maiden</button>
               </div>
             </div>
           </div>

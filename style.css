@@ -2,28 +2,41 @@
   outline-style: solid;
   outline-color: black;
 }
+
+:root {
+  
+}
+
 header {
   font-family: 'Shojumaru', cursive;
   font-size: x-large;
 }
 
+.gold-counter {
+  font-family: 'Shojumaru', cursive;
 
-.pirate-ship {
-  width: 40vh;
-  height: 40vh;
+}
+
+.island {
+  width: 50vh;
+  height: 50vh;
 }
 
 .canon {
-  width: 20vh;
-  height: 20vh;
+  width: 12vh;
+  height: 8vh;
 }
 
 .pirate-maiden {
-  width: 20vh;
-  height: 20vh;
+  width: 8vh;
+  height: 12vh;
 }
 
 .gold-coin {
   width: 10vh;
   height: 10vh;
+}
+
+.hidden {
+  display: none !important;
 }
