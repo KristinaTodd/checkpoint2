@@ -3,15 +3,17 @@ let goldCountElem = document.getElementById("gold-count")
 
 let maiden = { total: 0, cost: 125, modifier: 3 }
 let canon = { total: 0, cost: 25, modifier: 1 }
+let parrot = { total: 0, cost: 200, modifier: 1 }
+let ship = { total: 0, cost: 750, modifier: 10 }
 
 function pillageIsland() {
-  currentGoldCount++
+  currentGoldCount = currentGoldCount + (1 * parrot.modifier)
   updateGoldCount()
 }
 
 function updateGoldCount() {
   let goldCountTemplate =
-    `<span class="gold-counter"><img src="./gold-coin.png" class="gold-coin"> ${currentGoldCount}</span>`
+    `<span class="gold-counter"> <h2>${currentGoldCount}</h2></span>`
 
   goldCountElem.innerHTML = goldCountTemplate
 
@@ -21,8 +23,30 @@ function updateGoldCount() {
 
   canonReady()
   maidenReady()
+  maidenNotReady()
+  canontNotReady()
+  parrotReady()
 }
 
+//PARROT
+
+function buyParrot() {
+  parrot.modifier++
+  parrot.total++
+
+  currentGoldCount = currentGoldCount - parrot.cost
+  updateGoldCount()
+
+  document.getElementById("buy-parrot").classList.add("invisible")
+  document.getElementById("parrot-image").classList.remove("invisible")
+  document.getElementById("parrot-desc").classList.remove("invisible")
+}
+
+function parrotReady() {
+  if (currentGoldCount >= parrot.cost && parrot.total == 0) {
+    document.getElementById("buy-parrot").classList.remove("invisible")
+  }
+}
 //CANON 
 
 function canonReady() {
@@ -34,7 +58,7 @@ function canonReady() {
 
 function buyCanon() {
   setInterval(canonFire, 3000)
-  document.getElementById("buy-canon").classList.add("invisible")
+
   currentGoldCount = currentGoldCount - canon.cost
 
   canon.total++
@@ -55,6 +79,11 @@ function updateCanonCount() {
   document.getElementById("canon-total").innerHTML = canonTemplate
 }
 
+function canontNotReady() {
+  if (currentGoldCount < canon.cost) {
+    document.getElementById("buy-canon").classList.add("invisible")
+  }
+}
 //MAIDEN
 
 function maidenReady() {
@@ -66,7 +95,7 @@ function maidenReady() {
 
 function buyMaiden() {
   setInterval(maidenFire, 2000)
-  document.getElementById("buy-maiden").classList.add("invisible")
+
   currentGoldCount = currentGoldCount - maiden.cost
 
   maiden.total++
@@ -85,4 +114,46 @@ function maidenFire() {
 function updateMaidenCount() {
   let maidenTemplate = `${maiden.total}`
   document.getElementById("maiden-total").innerHTML = maidenTemplate
+}
+
+function maidenNotReady() {
+  if (currentGoldCount < maiden.cost) {
+    document.getElementById("buy-maiden").classList.add("invisible")
+  }
+}
+
+//PIRATE SHIP 
+function shipReady() {
+  if (currentGoldCount >= ship.cost) {
+    document.getElementById("buy-ship").classList.remove("invisible")
+  }
+}
+
+function buyShip() {
+  setInterval(shipFire, 1000)
+
+  currentGoldCount = currentGoldCount - ship.cost
+
+  ship.total++
+  updateShipCount()
+
+  updateGoldCount()
+
+  ship.cost = ship.cost + 150
+}
+
+function shipFire() {
+  currentGoldCount = currentGoldCount + 10
+  updateGoldCount()
+}
+
+function updateShipCount() {
+  let shipTemplate = `${ship.total}`
+  document.getElementById("ship-total").innerHTML = shipTemplate
+}
+
+function shipNotReady() {
+  if (currentGoldCount < maiden.cost) {
+    document.getElementById("buy-maiden").classList.add("invisible")
+  }
 }

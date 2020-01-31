@@ -22,10 +22,12 @@
 
   <main class="container-fluid">
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-5">
         <div class="row">
-          <div class="col-12 text-center" id="gold-count">
-            <span class="gold-counter"><img src="./gold-coin.png" class="gold-coin">0</span>
+          <div class="col-12 text-center">
+            <img src="./gold-coin.png" class="gold-coin"><span class="gold-counter" id="gold-count">
+              <h2>0</h2>
+            </span>
           </div>
           <div class="col-12 text-center">
             <button class="btn transparant" onclick="pillageIsland()">
@@ -34,34 +36,46 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-7">
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 card">
             <h5 class="text-center">Your Arsenal</h5>
             <div class="row">
+              <div class="col-12 " id="parrot"><img src="./parrot.png" id="parrot-image" class="parrot invisible"><span
+                  class="invisible" id="parrot-desc">Pillaging + 1</span></div>
               <div class="col-12 "><img src="./canon.png" class="canon"> x <span id="canon-total"> 0 </span></div>
               <div class="col-12"><img src="./pirate-maiden.png" class="pirate-maiden"> x <span id="maiden-total"> 0
                 </span></div>
+              <div class="col-12"><img src="./pirate-ship-1.png" class="pirate-ship"> x <span id="ship-total"> 0
+                </span></div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 card">
             <h5 class="text-center">Shoppe</h5>
             <div class="row">
-              <div class="col-12 text-center">
-                <img src="./canon.png" class="canon"><button class="invisible btn btn-dark" id="buy-canon"
-                  onclick="buyCanon()">Buy
+              <div class="col-12 ">
+                <img src="./parrot.png" class="parrot" title="Pillaging Increases By 1">
+                <button class="invisible btn btn-dark" id="buy-parrot" onclick="buyParrot()">Buy Parrot</button></div>
+              <div class="col-12 ">
+                <img src="./canon.png" class="canon" title="Generates 0.33 GPS"><button class="invisible btn btn-dark"
+                  id="buy-canon" onclick="buyCanon()">Buy
                   Canon</button>
               </div>
-              <div class="col-12 text-center">
-                <img src="./pirate-maiden.png" class="pirate-maiden"><button class="invisible btn btn-dark"
-                  id="buy-maiden" onclick="buyMaiden()">Buy
-                  Maiden</button>
+              <div class="col-12 ">
+                <img src="./pirate-maiden.png" class="pirate-maiden" title="Generates 1.5 GPS">
+                <button class="invisible btn btn-dark" id="buy-maiden" onclick="buyMaiden()">Buy Maiden</button>
+              </div>
+              <div class="col-12">
+                <img src="./pirate-ship-1.png" class="pirate-ship" title="Generates 5 GPS">
+                <button class="invisible btn btn-dark" id="buy-ship" onclick="buyShip()">Buy Ship</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div>
+
   </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
