@@ -1,0 +1,29 @@
+* {
+  outline-style: solid;
+  outline-color: black;
+}
+header {
+  font-family: 'Shojumaru', cursive;
+  font-size: x-large;
+}
+
+
+.pirate-ship {
+  width: 40vh;
+  height: 40vh;
+}
+
+.canon {
+  width: 20vh;
+  height: 20vh;
+}
+
+.pirate-maiden {
+  width: 20vh;
+  height: 20vh;
+}
+
+.gold-coin {
+  width: 10vh;
+  height: 10vh;
+}
