@@ -49,6 +49,7 @@ function parrotReady() {
     document.getElementById("buy-parrot").classList.remove("invisible")
   }
 }
+
 //CANON 
 
 function canonReady() {
@@ -65,6 +66,7 @@ function buyCanon() {
 
   canon.total++
   updateCanonCount()
+  updateCanonMod()
 
   updateGoldCount()
 
@@ -86,6 +88,15 @@ function canonNotReady() {
     document.getElementById("buy-canon").classList.add("invisible")
   }
 }
+function updateCanonMod() {
+  let canonMod = canon.total * 0.33
+  let currentCanonMod = canonMod.toFixed(2)
+
+  let template =
+    `<span>Generating ${currentCanonMod} GPS</span>`
+
+  document.getElementById("canon-mod").innerHTML = template
+}
 //MAIDEN
 
 function maidenReady() {
@@ -102,6 +113,7 @@ function buyMaiden() {
 
   maiden.total++
   updateMaidenCount()
+  updateMaidenMod()
 
   updateGoldCount()
 
@@ -124,6 +136,15 @@ function maidenNotReady() {
   }
 }
 
+function updateMaidenMod() {
+  let maidenMod = maiden.total * 1.5
+  let currentMaidenMod = maidenMod.toFixed(2)
+
+  let maidenTemplate = `<span>Generating ${currentMaidenMod} GPS</span>`
+
+  document.getElementById("maiden-mod").innerHTML = maidenTemplate
+}
+
 //PIRATE SHIP 
 function shipReady() {
   if (currentGoldCount >= ship.cost) {
@@ -139,8 +160,7 @@ function buyShip() {
 
   ship.total++
   updateShipCount()
-
-
+  updateShipMod()
 
   ship.cost = ship.cost + 150
 }
@@ -159,4 +179,14 @@ function shipNotReady() {
   if (currentGoldCount < ship.cost) {
     document.getElementById("buy-ship").classList.add("invisible")
   }
+}
+
+function updateShipMod() {
+  let shipMod = ship.total * 10
+  let currentShipMod = shipMod.toFixed(2)
+
+  let shipTemplate =
+    `<span>Generating ${currentShipMod} GPS</span>`
+
+  document.getElementById("ship-mod").innerHTML = shipTemplate
 }

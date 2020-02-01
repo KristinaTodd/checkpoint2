@@ -29,10 +29,8 @@
               <h2>0</h2>
             </span>
           </div>
-          <div class="col-12 text-center">
-            <button class="btn transparant island border-0" onclick="pillageIsland()">
-              <img src="./treasure-island.jpg" alt="pirate ship" id="treasure-island" class="island" title="Pillage!">
-            </button>
+          <div class="col-12 text-center island-button" onclick="pillageIsland()">
+            <img src="./treasure-island.jpg" alt="pirate ship" id="treasure-island" class="island" title="Pillage!">
           </div>
         </div>
       </div>
@@ -44,10 +42,19 @@
               <div class="col-12 " id="parrot"><img src="./parrot.png" id="parrot-image" class="parrot invisible"><span
                   class="invisible" id="parrot-desc">Pillaging + 1</span></div>
               <div class="col-12 "><img src="./canon.png" class="canon"> x <span id="canon-total"> 0 </span></div>
+              <div class="col-12" id="canon-mod">
+
+              </div>
               <div class="col-12"><img src="./pirate-maiden.png" class="pirate-maiden"> x <span id="maiden-total"> 0
                 </span></div>
+              <div class="col-12" id="maiden-mod">
+
+              </div>
               <div class="col-12"><img src="./pirate-ship-1.png" class="pirate-ship"> x <span id="ship-total"> 0
                 </span></div>
+              <div class="col-12" id="ship-mod">
+
+              </div>
             </div>
           </div>
           <div class="col-12 col-md-6 card">
@@ -71,7 +78,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 card text-center">
+          <div class="col-12 card text-center bg-danger">
             <h4>Pillage the island for gold!</h4>
             <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each thing you buy can help you
               loot more gold.</h5>
