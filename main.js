@@ -26,7 +26,7 @@ function updateGoldCount() {
   if (currentGoldCount <= 0) {
     currentGoldCount = 0
   }
-
+  saveGame()
   hatReady()
   parrotReady()
   canonReady()
@@ -242,7 +242,6 @@ function updateShipCount() {
   let shipTemplate = `${autoItems.ship.total}`
   document.getElementById("ship-total").innerHTML = shipTemplate
 }
-
 
 function updateShipMod() {
   let currentShipMod = autoItems.ship.total * 10
