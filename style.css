@@ -11,7 +11,14 @@ header {
   font-size: x-large;
 }
 
+footer {
+  height: 12vh;
+}
 
+.scrolling {
+  overflow: hidden;
+  height: 57vh;
+}
 
 .island {
   width: 55vh;
@@ -29,6 +36,11 @@ header {
 .parrot {
   width: 8vh;
   height: 12vh;
+}
+
+.hat {
+  width: 13vh;
+  height: 13vh;
 }
 
 .canon {

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Shojumaru&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -57,12 +59,15 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 card">
+          <div class="col-12 col-md-6 card scrolling">
             <h5 class="text-center">Shoppe</h5>
-            <div class="row">
+            <div class="row" style="overflow-y:scroll;">
               <div class="col-12 ">
                 <img src="./parrot.png" class="parrot" title="Pillaging Increases By 1">
                 <button class="invisible btn btn-dark" id="buy-parrot" onclick="buyParrot()">Buy Parrot</button></div>
+              <div class="col-12 ">
+                <img src="./pirate-hat.png" class="hat" title="Pillaging Increases By 2">
+                <button class="invisible btn btn-dark" id="buy-hat" onclick="buyHat()">Buy Parrot</button></div>
               <div class="col-12 ">
                 <img src="./canon.png" class="canon" title="Generates 0.33 GPS"><button class="invisible btn btn-dark"
                   id="buy-canon" onclick="buyCanon()">Buy
@@ -92,7 +97,6 @@
 
   <footer class="container-fluid bg-dark text-white text-center">
     <div class="row">
-      <div class="col-12 p-1"></div>
       <div class="col-12">
         <h4>Built With Love by</h4>
         <h4 class="text-danger">Kristina Todd</h4>
@@ -100,6 +104,9 @@
     </div>
   </footer>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

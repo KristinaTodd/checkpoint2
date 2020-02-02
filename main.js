@@ -1,6 +1,7 @@
 let currentGoldCount = 0
 let goldCountElem = document.getElementById("gold-count")
 
+
 let maiden = { total: 0, cost: 125, modifier: 3 }
 let canon = { total: 0, cost: 25, modifier: 1 }
 let parrot = { total: 0, cost: 200, modifier: 1 }
@@ -42,6 +43,13 @@ function buyParrot() {
   document.getElementById("buy-parrot").classList.add("invisible")
   document.getElementById("parrot-image").classList.remove("invisible")
   document.getElementById("parrot-desc").classList.remove("invisible")
+
+  Swal.fire({
+    position: 'top-end',
+    title: 'You purchased a Parrot!',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 
 function parrotReady() {
@@ -55,7 +63,6 @@ function parrotReady() {
 function canonReady() {
   if (currentGoldCount >= canon.cost) {
     document.getElementById("buy-canon").classList.remove("invisible")
-    console.log("Canon Cost =", canon.cost)
   }
 }
 
@@ -71,6 +78,14 @@ function buyCanon() {
   updateGoldCount()
 
   canon.cost = canon.cost + 5
+
+
+  Swal.fire({
+    position: 'top-end',
+    title: 'You purchased a canon!',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 
 function canonFire() {
@@ -102,7 +117,6 @@ function updateCanonMod() {
 function maidenReady() {
   if (currentGoldCount >= maiden.cost) {
     document.getElementById("buy-maiden").classList.remove("invisible")
-    console.log("Maiden Cost=", maiden.cost)
   }
 }
 
@@ -118,6 +132,13 @@ function buyMaiden() {
   updateGoldCount()
 
   maiden.cost = maiden.cost + 15
+
+  Swal.fire({
+    position: 'top-end',
+    title: 'You purchased a Pirate Maiden!',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 
 function maidenFire() {
@@ -138,7 +159,7 @@ function maidenNotReady() {
 
 function updateMaidenMod() {
   let maidenMod = maiden.total * 1.5
-  let currentMaidenMod = maidenMod.toFixed(2)
+  let currentMaidenMod = maidenMod.toFixed(1)
 
   let maidenTemplate = `<span>Generating ${currentMaidenMod} GPS</span>`
 
@@ -163,6 +184,13 @@ function buyShip() {
   updateShipMod()
 
   ship.cost = ship.cost + 150
+
+  Swal.fire({
+    position: 'top-end',
+    title: 'You purchased a Pirate Ship!',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 
 function shipFire() {
@@ -182,11 +210,12 @@ function shipNotReady() {
 }
 
 function updateShipMod() {
-  let shipMod = ship.total * 10
-  let currentShipMod = shipMod.toFixed(2)
+  let currentShipMod = ship.total * 10
 
   let shipTemplate =
     `<span>Generating ${currentShipMod} GPS</span>`
 
   document.getElementById("ship-mod").innerHTML = shipTemplate
 }
+
+
