@@ -6,9 +6,10 @@ let maiden = { total: 0, cost: 125, modifier: 3 }
 let canon = { total: 0, cost: 25, modifier: 1 }
 let parrot = { total: 0, cost: 200, modifier: 1 }
 let ship = { total: 0, cost: 750, modifier: 10 }
+let hat = { total: 0, cost: 1200, modifier: 0 }
 
 function pillageIsland() {
-  currentGoldCount = currentGoldCount + (1 * parrot.modifier)
+  currentGoldCount = currentGoldCount + (1 * parrot.modifier) + (1 * hat.modifier)
   updateGoldCount()
 }
 
@@ -58,6 +59,30 @@ function parrotReady() {
   }
 }
 
+function buyHat() {
+  hat.modifier = 2
+  hat.total++
+
+  currentGoldCount = currentGoldCount - hat.cost
+  updateGoldCount()
+
+  document.getElementById("buy-hat").classList.add("invisible")
+  document.getElementById("hat-image").classList.remove("invisible")
+  document.getElementById("hat-desc").classList.remove("invisible")
+
+  Swal.fire({
+    position: 'top-end',
+    title: 'You upgraded your Pirate Hat!',
+    showConfirmButton: false,
+    timer: 2000
+  })
+}
+
+function hatReady() {
+  if (currentGoldCount >= hat.cost && hat.total == 0) {
+    document.getElementById("buy-hat").classList.remove("invisible")
+  }
+}
 //CANON 
 
 function canonReady() {
@@ -75,10 +100,11 @@ function buyCanon() {
   updateCanonCount()
   updateCanonMod()
 
+
   updateGoldCount()
 
   canon.cost = canon.cost + 5
-
+  updateCanonCost()
 
   Swal.fire({
     position: 'top-end',
@@ -111,6 +137,13 @@ function updateCanonMod() {
     `<span>Generating ${currentCanonMod} GPS</span>`
 
   document.getElementById("canon-mod").innerHTML = template
+}
+
+function updateCanonCost() {
+  let template =
+    `Cost: ${canon.cost} gold`
+
+  document.getElementById("canon-cost").innerHTML = template
 }
 //MAIDEN
 
@@ -217,5 +250,12 @@ function updateShipMod() {
 
   document.getElementById("ship-mod").innerHTML = shipTemplate
 }
+
+function updateShipCost() {
+  let template =
+    `<span title="`
+}
+
+
 
 

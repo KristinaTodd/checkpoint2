@@ -41,8 +41,10 @@
           <div class="col-12 col-md-6 card">
             <h5 class="text-center">Your Arsenal</h5>
             <div class="row">
-              <div class="col-12 " id="parrot"><img src="./parrot.png" id="parrot-image" class="parrot invisible"><span
+              <div class="col-6 " id="parrot"><img src="./parrot.png" id="parrot-image" class="parrot invisible"><span
                   class="invisible" id="parrot-desc">Pillaging + 1</span></div>
+              <div class="col-6 " id="hat"><img src="./pirate-hat.png" id="hat-image" class="pirate-hat invisible"><span
+                  class="invisible" id="hat-desc">Pillaging + 2</span></div>
               <div class="col-12 "><img src="./canon.png" class="canon"> x <span id="canon-total"> 0 </span></div>
               <div class="col-12" id="canon-mod">
 
@@ -59,33 +61,34 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 card scrolling">
+          <div class="col-12 col-md-6 card scrolling" id="shoppe">
             <h5 class="text-center">Shoppe</h5>
-            <div class="row" style="overflow-y:scroll;">
-              <div class="col-12 ">
+            <div class="row shoppe-font" style="overflow-y:scroll;">
+              <div class="col-12 bg-grey">
                 <img src="./parrot.png" class="parrot" title="Pillaging Increases By 1">
-                <button class="invisible btn btn-dark" id="buy-parrot" onclick="buyParrot()">Buy Parrot</button></div>
+                <button class="invisible btn btn-dark" id="buy-parrot" onclick="buyParrot()">Buy Parrot</button>
+                <span id="parrot-cost"></span></div>
               <div class="col-12 ">
                 <img src="./pirate-hat.png" class="hat" title="Pillaging Increases By 2">
                 <button class="invisible btn btn-dark" id="buy-hat" onclick="buyHat()">Buy Parrot</button></div>
-              <div class="col-12 ">
-                <img src="./canon.png" class="canon" title="Generates 0.33 GPS"><button class="invisible btn btn-dark"
+              <div class="col-12 bg-grey">
+                <img src="./canon.png" class="canon" title="Pillages 0.33 GPS"><button class="invisible btn btn-dark"
                   id="buy-canon" onclick="buyCanon()">Buy
-                  Canon</button>
+                  Canon</button><span id="canon-cost" class="pl-2">Cost: 25 gold</span>
               </div>
               <div class="col-12 ">
-                <img src="./pirate-maiden.png" class="pirate-maiden" title="Generates 1.5 GPS">
+                <img src="./pirate-maiden.png" class="pirate-maiden" title="Pillagess 1.5 GPS">
                 <button class="invisible btn btn-dark" id="buy-maiden" onclick="buyMaiden()">Buy Maiden</button>
               </div>
-              <div class="col-12">
-                <img src="./pirate-ship-1.png" class="pirate-ship" title="Generates 10 GPS">
+              <div class="col-12 bg-grey">
+                <img src="./pirate-ship-1.png" class="pirate-ship" title="Pillagess 10 GPS">
                 <button class="invisible btn btn-dark" id="buy-ship" onclick="buyShip()">Buy Ship</button>
               </div>
             </div>
           </div>
           <div class="col-12 card text-center bg-danger">
             <h4>Pillage the island for gold!</h4>
-            <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each thing you buy can help you
+            <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each item you buy can help you
               loot more gold.</h5>
           </div>
         </div>
