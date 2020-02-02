@@ -26,6 +26,7 @@ function updateGoldCount() {
   if (currentGoldCount <= 0) {
     currentGoldCount = 0
   }
+
   saveGame()
   hatReady()
   parrotReady()
@@ -160,7 +161,6 @@ function canonReady() {
   }
 }
 
-
 function canonFire() {
   currentGoldCount++
   updateGoldCount()
@@ -170,7 +170,6 @@ function updateCanonCount() {
   let canonTemplate = `${autoItems.canon.total}`
   document.getElementById("canon-total").innerHTML = canonTemplate
 }
-
 
 function updateCanonMod() {
   let canonMod = autoItems.canon.total * 0.33

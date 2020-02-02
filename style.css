@@ -29,12 +29,7 @@ footer {
   height: 55vh;
   padding: 0;
   outline: none;
-}
 
-.island-button :active {
-  width: 50vh;
-  height: 50vh;
-  outline: none !important;
 }
 
 .parrot {
