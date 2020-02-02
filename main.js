@@ -23,6 +23,7 @@ function updateGoldCount() {
     currentGoldCount = 0
   }
 
+  hatReady()
   parrotReady()
   canonReady()
   maidenReady()
@@ -30,7 +31,12 @@ function updateGoldCount() {
   maidenNotReady()
   canonNotReady()
   shipNotReady()
+  parrotNotReady()
 }
+
+//TODO consolidate all single item buy functions into one function that takes in the item being bought
+//TODO consolidate hat & parrot into one function
+
 
 //PARROT
 
@@ -59,6 +65,14 @@ function parrotReady() {
   }
 }
 
+function parrotNotReady() {
+  if (currentGoldCount < parrot.cost) {
+    document.getElementById("buy-parrot").classList.add("invisible")
+  }
+}
+
+//PIRATE HAT
+
 function buyHat() {
   hat.modifier = 2
   hat.total++
@@ -72,7 +86,7 @@ function buyHat() {
 
   Swal.fire({
     position: 'top-end',
-    title: 'You upgraded your Pirate Hat!',
+    title: 'You upgraded your Captain Hat!',
     showConfirmButton: false,
     timer: 2000
   })
@@ -81,6 +95,12 @@ function buyHat() {
 function hatReady() {
   if (currentGoldCount >= hat.cost && hat.total == 0) {
     document.getElementById("buy-hat").classList.remove("invisible")
+  }
+}
+
+function hatNotReady() {
+  if (currentGoldCount < hat.cost) {
+    document.getElementById("buy-hat").classList.add("invisible")
   }
 }
 //CANON 
@@ -129,19 +149,20 @@ function canonNotReady() {
     document.getElementById("buy-canon").classList.add("invisible")
   }
 }
+
 function updateCanonMod() {
   let canonMod = canon.total * 0.33
   let currentCanonMod = canonMod.toFixed(2)
 
   let template =
-    `<span>Generating ${currentCanonMod} GPS</span>`
+    `<span class="text-center">Generating ${currentCanonMod} GPS</span>`
 
   document.getElementById("canon-mod").innerHTML = template
 }
 
 function updateCanonCost() {
   let template =
-    `Cost: ${canon.cost} gold`
+    `Cost: ${canon.cost}<img src="./gold-coin.png" class="shoppe-gold">`
 
   document.getElementById("canon-cost").innerHTML = template
 }
@@ -162,9 +183,11 @@ function buyMaiden() {
   updateMaidenCount()
   updateMaidenMod()
 
+
   updateGoldCount()
 
   maiden.cost = maiden.cost + 15
+  updateMaidenCost()
 
   Swal.fire({
     position: 'top-end',
@@ -194,9 +217,16 @@ function updateMaidenMod() {
   let maidenMod = maiden.total * 1.5
   let currentMaidenMod = maidenMod.toFixed(1)
 
-  let maidenTemplate = `<span>Generating ${currentMaidenMod} GPS</span>`
+  let maidenTemplate = `<span class="text-center">Generating ${currentMaidenMod} GPS</span>`
 
   document.getElementById("maiden-mod").innerHTML = maidenTemplate
+}
+
+function updateMaidenCost() {
+  let template =
+    `Cost: ${maiden.cost}<img src="./gold-coin.png" class="shoppe-gold">`
+
+  document.getElementById("maiden-cost").innerHTML = template
 }
 
 //PIRATE SHIP 
@@ -216,7 +246,9 @@ function buyShip() {
   updateShipCount()
   updateShipMod()
 
+
   ship.cost = ship.cost + 150
+  updateShipCost()
 
   Swal.fire({
     position: 'top-end',
@@ -246,16 +278,22 @@ function updateShipMod() {
   let currentShipMod = ship.total * 10
 
   let shipTemplate =
-    `<span>Generating ${currentShipMod} GPS</span>`
+    `<span class="text-center">Generating ${currentShipMod} GPS</span>`
 
   document.getElementById("ship-mod").innerHTML = shipTemplate
 }
 
 function updateShipCost() {
   let template =
-    `<span title="`
+    `Cost: ${ship.cost}<img src="./gold-coin.png" class="shoppe-gold">`
+
+  document.getElementById("ship-cost").innerHTML = template
 }
 
+//TODO set all current data to save locally
 
+// function savePlayers() {
+//   window.localStorage.setItem("players", JSON.stringify(players))
+// }
 
 

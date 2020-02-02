@@ -36,56 +36,109 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-7">
         <div class="row">
-          <div class="col-12 col-md-6 card">
-            <h5 class="text-center">Your Arsenal</h5>
+          <div class="col-12 col-md-6 card scrolling">
+            <h3 class="text-center">Arsenal</h3>
             <div class="row">
-              <div class="col-6 " id="parrot"><img src="./parrot.png" id="parrot-image" class="parrot invisible"><span
-                  class="invisible" id="parrot-desc">Pillaging + 1</span></div>
-              <div class="col-6 " id="hat"><img src="./pirate-hat.png" id="hat-image" class="pirate-hat invisible"><span
-                  class="invisible" id="hat-desc">Pillaging + 2</span></div>
-              <div class="col-12 "><img src="./canon.png" class="canon"> x <span id="canon-total"> 0 </span></div>
-              <div class="col-12" id="canon-mod">
+              <div class="col-6 shoppe-row" id="parrot">
+                <img src="./parrot.png" id="parrot-image" class="parrot invisible p-1">
+                <span class="invisible" id="parrot-desc">Pillaging + 1</span>
+              </div>
+              <div class="col-6 shoppe-row" id="hat">
+                <img src="./pirate-hat.png" id="hat-image" class="pirate-hat invisible p-1">
+                <span class="invisible" id="hat-desc">Pillaging + 2</span>
+              </div>
+              <div class="col-12 shoppe-row">
+                <img src="./canon.png" class="canon p-1"> x <span id="canon-total"> 0 </span>
+              </div>
+              <div class="col-12 text-center" id="canon-mod">
 
               </div>
-              <div class="col-12"><img src="./pirate-maiden.png" class="pirate-maiden"> x <span id="maiden-total"> 0
+              <div class="col-12 shoppe-row"><img src="./pirate-maiden.png" class="pirate-maiden p-1"> x <span
+                  id="maiden-total"> 0
                 </span></div>
-              <div class="col-12" id="maiden-mod">
+              <div class="col-12 text-center" id="maiden-mod">
 
               </div>
-              <div class="col-12"><img src="./pirate-ship-1.png" class="pirate-ship"> x <span id="ship-total"> 0
+              <div class="col-12 shoppe-row"><img src="./pirate-ship-1.png" class="pirate-ship p-1"> x <span
+                  id="ship-total"> 0
                 </span></div>
-              <div class="col-12" id="ship-mod">
+              <div class="col-12 text-center" id="ship-mod">
 
               </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 card scrolling" id="shoppe">
-            <h5 class="text-center">Shoppe</h5>
-            <div class="row shoppe-font" style="overflow-y:scroll;">
-              <div class="col-12 bg-grey">
-                <img src="./parrot.png" class="parrot" title="Pillaging Increases By 1">
-                <button class="invisible btn btn-dark" id="buy-parrot" onclick="buyParrot()">Buy Parrot</button>
-                <span id="parrot-cost"></span></div>
-              <div class="col-12 ">
-                <img src="./pirate-hat.png" class="hat" title="Pillaging Increases By 2">
-                <button class="invisible btn btn-dark" id="buy-hat" onclick="buyHat()">Buy Parrot</button></div>
-              <div class="col-12 bg-grey">
-                <img src="./canon.png" class="canon" title="Pillages 0.33 GPS"><button class="invisible btn btn-dark"
-                  id="buy-canon" onclick="buyCanon()">Buy
-                  Canon</button><span id="canon-cost" class="pl-2">Cost: 25 gold</span>
-              </div>
-              <div class="col-12 ">
-                <img src="./pirate-maiden.png" class="pirate-maiden" title="Pillagess 1.5 GPS">
-                <button class="invisible btn btn-dark" id="buy-maiden" onclick="buyMaiden()">Buy Maiden</button>
-              </div>
-              <div class="col-12 bg-grey">
-                <img src="./pirate-ship-1.png" class="pirate-ship" title="Pillagess 10 GPS">
-                <button class="invisible btn btn-dark" id="buy-ship" onclick="buyShip()">Buy Ship</button>
+
+            <div class="row bg-danger">
+              <div class="col-12">
+                <h3 class="text-center ">Shoppe</h3>
               </div>
             </div>
+
+            <div class="row shoppe-font" style="overflow-y:scroll;">
+
+              <div class="col-12">
+                <div class="row bg-grey">
+                  <div class="col-4 shoppe-row"><img src="./canon.png" class="canon" title="Pillages 0.33 GPS"></div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-canon"
+                      onclick="buyCanon()">Buy Canon</button></div>
+                  <div class="col-12 text-center"><span id="canon-cost" class="pl-2">Cost: 25<img src="./gold-coin.png"
+                        class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+              <div class="col-12 ">
+                <div class="row">
+                  <div class="col-4 shoppe-row"><img src="./pirate-maiden.png" class="pirate-maiden"
+                      title="Pillagess 1.5 GPS">
+                  </div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-maiden"
+                      onclick="buyMaiden()">Buy Maiden</button></div>
+                  <div class="col-12 text-center"><span id="maiden-cost" class="pl-2">Cost: 125<img
+                        src="./gold-coin.png" class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row bg-grey">
+                  <div class="col-4 shoppe-row"><img src="./parrot.png" class="parrot" title="Pillaging Increases By 1">
+                  </div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-parrot"
+                      onclick="buyParrot()">Buy Parrot</button></div>
+                  <div class="col-12 text-center p-1"><span id="parrot-cost" class="pl-2">Cost: 200<img
+                        src="./gold-coin.png" class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row ">
+                  <div class="col-4 shoppe-row"><img src="./pirate-ship-1.png" class="pirate-ship"
+                      title="Pillages 10 GPS"></div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-ship"
+                      onclick="buyShip()">Buy Ship</button></div>
+                  <div class="col-12 text-center"><span id="ship-cost" class="pl-2">Cost: 750<img src="./gold-coin.png"
+                        class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+              <div class="col-12 ">
+                <div class="row bg-grey">
+                  <div class="col-4 shoppe-row"><img src="./pirate-hat.png" class="pirate-hat"
+                      title="Pillaging Increases By 2"></div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-hat"
+                      onclick="buyHat()">Buy Hat</button></div>
+                  <div class="col-12 text-center p-1"><span id="canon-cost" class="pl-2">Cost: 1200<img
+                        src="./gold-coin.png" class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
           <div class="col-12 card text-center bg-danger">
             <h4>Pillage the island for gold!</h4>
             <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each item you buy can help you
@@ -94,7 +147,7 @@
         </div>
       </div>
     </div>
-    </div>
+
 
   </main>
 

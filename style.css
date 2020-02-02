@@ -21,7 +21,7 @@ footer {
 
 .scrolling {
   overflow: hidden;
-  height: 57vh;
+  height: 70vh;
 }
 
 .island {
@@ -43,9 +43,9 @@ footer {
   padding: 1px;
 }
 
-.hat {
-  width: 13vh;
-  height: 13vh;
+.pirate-hat {
+  width: 11vh;
+  height: 11vh;
 }
 
 .canon {
@@ -71,6 +71,18 @@ footer {
 
 .shoppe-font {
   font-size: x-small;
+}
+
+.shoppe-row {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoppe-gold {
+  width: 2vh;
+  height: 2vh;
 }
 
 .hidden {
