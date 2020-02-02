@@ -35,8 +35,6 @@ function updateGoldCount() {
 
 }
 
-//TODO consolidate all single item buy functions into one function that takes in the item being bought
-//TODO consolidate hat & parrot into one function
 function buyAuto(autoItem) {
   currentGoldCount = currentGoldCount - autoItems[autoItem].cost
   updateGoldCount()
@@ -262,7 +260,6 @@ function updateShipCost() {
   document.getElementById("ship-cost").innerHTML = template
 }
 
-//TODO set all current data to save locally
 
 function saveGame() {
   window.localStorage.setItem("game-stats", JSON.stringify(autoItems))
