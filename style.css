@@ -68,6 +68,11 @@ footer {
   font-size: x-small;
 }
 
+.octopus {
+  width: 12vh;
+  height: 12vh;
+}
+
 .shoppe-row {
   height: 75px;
   display: flex;

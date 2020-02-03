@@ -4,13 +4,14 @@ let goldCountElem = document.getElementById("gold-count")
 let autoItems = {
   maiden: { total: 0, cost: 125, modifier: 3 },
   ship: { total: 0, cost: 750, modifier: 10 },
-  canon: { total: 0, cost: 25, modifier: 1 }
+  canon: { total: 0, cost: 25, modifier: 1 },
+  octopus: { total: 0, cost: 3000, modifier: 25 }
 }
 
 
 let parrot = { total: 0, cost: 200, modifier: 1 }
-
 let hat = { total: 0, cost: 1200, modifier: 0 }
+
 
 function pillageIsland() {
   currentGoldCount = currentGoldCount + (1 * parrot.modifier) + (1 * hat.modifier)
@@ -27,19 +28,17 @@ function updateGoldCount() {
     currentGoldCount = 0
   }
 
-  saveGame()
   hatReady()
   parrotReady()
   canonReady()
   maidenReady()
   shipReady()
-
+  octopusReady()
 }
 
 function buyAuto(autoItem) {
   currentGoldCount = currentGoldCount - autoItems[autoItem].cost
   updateGoldCount()
-  saveGame()
 
   if (autoItem == 'canon') {
     setInterval(canonFire, 3000)
@@ -85,6 +84,22 @@ function buyAuto(autoItem) {
     Swal.fire({
       position: 'top-end',
       title: 'You purchased a Pirate Ship!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } else if (autoItem == 'octopus') {
+    setInterval(octopusFire, 1000)
+
+    autoItems.octopus.total++
+    updateOctopusCount()
+    updateOctopusMod()
+
+    autoItems.octopus.cost = autoItems.octopus.cost + 450
+    updateOctopusCost()
+
+    Swal.fire({
+      position: 'top-end',
+      title: 'You purchased an Angry Octopus!',
       showConfirmButton: false,
       timer: 1500
     })
@@ -258,12 +273,41 @@ function updateShipCost() {
   document.getElementById("ship-cost").innerHTML = template
 }
 
-
-function saveGame() {
-  window.localStorage.setItem("game-stats", JSON.stringify(autoItems))
-  window.localStorage.setItem("gold", JSON.stringify(currentGoldCount))
-  window.localStorage.setItem("parrot", JSON.stringify(parrot))
-  window.localStorage.setItem("hat", JSON.stringify(hat))
+//OCTOPUS
+function octopusReady() {
+  if (currentGoldCount >= autoItems.octopus.cost) {
+    document.getElementById("buy-octopus").classList.remove("invisible")
+  } else if (currentGoldCount < autoItems.octopus.cost) {
+    document.getElementById("buy-octopus").classList.add("invisible")
+  }
 }
+
+function octopusFire() {
+  currentGoldCount = currentGoldCount + 25
+  updateGoldCount()
+}
+
+function updateOctopusCount() {
+  let octopusTemplate = `${autoItems.octopus.total}`
+  document.getElementById("octopus-total").innerHTML = octopusTemplate
+}
+
+function updateOctopusMod() {
+  let currentOctopusMod = autoItems.octopus.total * 25
+
+  let octopusTemplate =
+    `<span class="text-center">Generating ${currentOctopusMod} GPS</span>`
+
+  document.getElementById("octopus-mod").innerHTML = octopusTemplate
+}
+
+function updateOctopusCost() {
+  let template =
+    `Cost: ${autoItems.octopus.cost}<img src="./gold-coin.png" class="shoppe-gold">`
+
+  document.getElementById("octopus-cost").innerHTML = template
+}
+
+
 
 

@@ -41,34 +41,41 @@
         <div class="row">
           <div class="col-12 col-md-6 card scrolling">
             <h3 class="text-center text-danger">Arsenal</h3>
-            <div class="row">
-              <div class="col-6 shoppe-row" id="parrot">
+            <div class="row" style="overflow-y:scroll;">
+              <div class="col-6 shoppe-row " id="parrot">
                 <img src="./parrot.png" id="parrot-image" class="parrot invisible p-1">
-                <span class="invisible" id="parrot-desc">Pillaging + 1</span>
+                <span class="invisible shoppe-font" id="parrot-desc">Pillaging + 1</span>
               </div>
               <div class="col-6 shoppe-row" id="hat">
                 <img src="./pirate-hat.png" id="hat-image" class="pirate-hat invisible p-1">
-                <span class="invisible" id="hat-desc">Pillaging + 2</span>
+                <span class="invisible shoppe-font" id="hat-desc">Pillaging + 2</span>
               </div>
-              <div class="col-12 shoppe-row">
+              <div class="col-12 shoppe-row ">
                 <img src="./canon.png" class="canon p-1"> x <span id="canon-total"> 0 </span>
               </div>
-              <div class="col-12 text-center" id="canon-mod">
+              <div class="col-12 text-center shoppe-font" id="canon-mod">
 
               </div>
               <div class="col-12 shoppe-row"><img src="./pirate-maiden.png" class="pirate-maiden p-1"> x <span
                   id="maiden-total"> 0
                 </span></div>
-              <div class="col-12 text-center" id="maiden-mod">
+              <div class="col-12 text-center shoppe-font" id="maiden-mod">
 
               </div>
               <div class="col-12 shoppe-row"><img src="./pirate-ship-1.png" class="pirate-ship p-1"> x <span
                   id="ship-total"> 0
                 </span></div>
-              <div class="col-12 text-center" id="ship-mod">
+              <div class="col-12 text-center shoppe-font" id="ship-mod">
 
               </div>
+              <div class="col-12 shoppe-row"><img src="./octopus.png" class="octopus p-1"> x <span id="octopus-total"> 0
+                </span></div>
+              <div class="col-12 text-center shoppe-font" id="octopus-mod">
+
+              </div>
+
             </div>
+
           </div>
 
           <div class="col-12 col-md-6 card scrolling" id="shoppe">
@@ -132,6 +139,16 @@
                   <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-hat"
                       onclick="buyHat()">Buy Hat</button></div>
                   <div class="col-12 text-center p-1"><span id="canon-cost" class="pl-2">Cost: 1200<img
+                        src="./gold-coin.png" class="shoppe-gold"></span></div>
+                </div>
+              </div>
+
+              <div class="col-12 ">
+                <div class="row ">
+                  <div class="col-4 shoppe-row"><img src="./octopus.png" class="octopus" title="Pillages 25 GPS"></div>
+                  <div class="col-8 shoppe-row"><button class="invisible btn btn-dark" id="buy-octopus"
+                      onclick="buyAuto('octopus')">Buy Octopus</button></div>
+                  <div class="col-12 text-center p-1"><span id="octopus-cost" class="pl-2">Cost: 3000<img
                         src="./gold-coin.png" class="shoppe-gold"></span></div>
                 </div>
               </div>
