@@ -1,5 +1,6 @@
 let currentGoldCount = 0
 let goldCountElem = document.getElementById("gold-count")
+let totalGoldCount = 0
 
 let autoItems = {
   maiden: { total: 0, cost: 125, modifier: 3 },
@@ -16,6 +17,8 @@ let hat = { total: 0, cost: 1200, modifier: 0 }
 function pillageIsland() {
   currentGoldCount = currentGoldCount + (1 * parrot.modifier) + (1 * hat.modifier)
   updateGoldCount()
+  totalGoldCount = totalGoldCount + (1 * parrot.modifier) + (1 * hat.modifier)
+  goldAchievements()
 }
 
 function updateGoldCount() {
@@ -43,7 +46,7 @@ function buyAuto(autoItem) {
   if (autoItem == 'canon') {
     setInterval(canonFire, 3000)
     autoItems.canon.total++
-    updateCanonCount()
+
     updateCanonMod()
     autoItems.canon.cost = autoItems.canon.cost + 5
     updateCanonCost()
@@ -54,13 +57,14 @@ function buyAuto(autoItem) {
       showConfirmButton: false,
       timer: 1500
     })
+    updateCanonCount()
+    canonAchievements()
+
   } else if (autoItem == 'maiden') {
     setInterval(maidenFire, 2000)
-
     autoItems.maiden.total++
-    updateMaidenCount()
-    updateMaidenMod()
 
+    updateMaidenMod()
 
     autoItems.maiden.cost = autoItems.maiden.cost + 15
     updateMaidenCost()
@@ -71,11 +75,14 @@ function buyAuto(autoItem) {
       showConfirmButton: false,
       timer: 1500
     })
+
+    updateMaidenCount()
+    maidenAchievements()
+
   } else if (autoItem == 'ship') {
     setInterval(shipFire, 1000)
 
     autoItems.ship.total++
-    updateShipCount()
     updateShipMod()
 
     autoItems.ship.cost = autoItems.ship.cost + 150
@@ -87,11 +94,14 @@ function buyAuto(autoItem) {
       showConfirmButton: false,
       timer: 1500
     })
+    updateShipCount()
+    shipAchievements()
+
   } else if (autoItem == 'octopus') {
     setInterval(octopusFire, 1000)
 
     autoItems.octopus.total++
-    updateOctopusCount()
+
     updateOctopusMod()
 
     autoItems.octopus.cost = autoItems.octopus.cost + 450
@@ -103,9 +113,145 @@ function buyAuto(autoItem) {
       showConfirmButton: false,
       timer: 1500
     })
+
+    updateOctopusCount()
+    octopusAchievements()
   }
 }
 
+//ACHIEVEMENTS
+
+function goldAchievements() {
+  if (totalGoldCount >= 500 && totalGoldCount < 502) {
+    document.getElementById("gold-1").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pillaged 500 gold!!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (totalGoldCount >= 1000 && totalGoldCount < 1002) {
+    document.getElementById("gold-2").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pillaged 1000 gold!!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (totalGoldCount >= 15000 && totalGoldCount < 15002) {
+    document.getElementById("gold-3").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pilalged 15,000 gold!!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } else if (totalGoldCount >= 50000 && totalGoldCount < 50002) {
+    document.getElementById("gold-4").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pillaged 50,000 gold!!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (totalGoldCount >= 100000 && totalGoldCount < 100002) {
+    document.getElementById("gold-5").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pillaged 100,000 gold!!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (totalGoldCount >= 1000000 && totalGoldCount < 1000002) {
+    document.getElementById("gold-5").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have pillaged 1,000,000 gold!!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+}
+
+function canonAchievements() {
+  if (autoItems.canon.total == 5) {
+    document.getElementById("canon-1").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 5 canons!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (autoItems.canon.total == 10) {
+    document.getElementById("canon-2").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 10 canons!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+}
+
+function maidenAchievements() {
+  if (autoItems.maiden.total == 5) {
+    document.getElementById("maiden-1").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 5 Pirate Maidens!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (autoItems.maiden.total == 10) {
+    document.getElementById("maiden-2").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 10 Pirate Maidens!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+}
+
+function shipAchievements() {
+  if (autoItems.ship.total == 5) {
+    document.getElementById("ship-1").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 5 Pirate Ships!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (autoItems.ship.total == 10) {
+    document.getElementById("ship-2").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 10 Pirate Ships!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+}
+
+function octopusAchievements() {
+  if (autoItems.octopus.total == 2) {
+    document.getElementById("octopus-1").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 2 Angry Octopuses!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  } else if (autoItems.octopus.total == 5) {
+    document.getElementById("octopus-2").classList.add("bg-success")
+    Swal.fire({
+      position: 'top-end',
+      title: 'You have purchased 5 Pirate Ships!',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+}
 //PARROT
 
 function buyParrot() {
