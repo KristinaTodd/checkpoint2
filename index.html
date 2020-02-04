@@ -19,11 +19,38 @@
       <div class="col-12 bg-dark text-danger text-center p-1">
         <h1>Pirate Pillagers!</h1>
       </div>
+      <div class="col-12 bg-dark text-center p-1 text-white hidden" id="captain-welcome">
+
+      </div>
     </div>
   </header>
 
   <main class="container-fluid">
-    <div class="row">
+
+    <section class="row card" id="home-page">
+      <div class="col-12 text-center">
+        <h2>Welcome Captain!</h2>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-5 card text-center">
+        <img src="./octopus.png" height="200vh" width="200vw">
+        <h4>Pillage the island for gold!</h4>
+        <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each item you buy can help you
+          loot more gold.</h5>
+        <form class="text-center " id="captain-form" onSubmit="setCaptain(event)">
+          <div>
+            <label for="name">
+              <span>Captain:</span>
+            </label>
+            <input type="text" name="captainName" required>
+          </div>
+          <button type="submit" class="btn btn-dark" id="play-game">Aye! Let's Pillage!</button>
+        </form>
+      </div>
+      <div class="col-3"></div>
+    </section>
+
+    <section class="row hidden" id="game-board">
       <div class="col-12 col-md-5 ">
         <div class="row">
           <div class="col-12 text-center">
@@ -80,7 +107,7 @@
         <div class="row">
           <div class="col-12 col-md-6 card scrolling">
             <h3 class="text-center text-danger">Arsenal</h3>
-            <div class="row" style="overflow-y:scroll;">
+            <div class="row">
               <div class="col-6 shoppe-row " id="parrot">
                 <img src="./parrot.png" id="parrot-image" class="parrot invisible p-1">
                 <span class="invisible shoppe-font" id="parrot-desc">Pillaging + 1</span>
@@ -193,16 +220,13 @@
               </div>
 
             </div>
+
           </div>
 
-          <div class="col-12 card text-center bg-danger">
-            <h4>Pillage the island for gold!</h4>
-            <h5>As your gold stash grows, buy from the Shoppe to add to your arsenal. Each item you buy can help you
-              loot more gold.</h5>
-          </div>
         </div>
+
       </div>
-    </div>
+    </section>
 
 
   </main>

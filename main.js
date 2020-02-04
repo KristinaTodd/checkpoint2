@@ -1,6 +1,7 @@
 let currentGoldCount = 0
 let goldCountElem = document.getElementById("gold-count")
 let totalGoldCount = 0
+let currentCaptain = {}
 
 let autoItems = {
   maiden: { total: 0, cost: 125, modifier: 3 },
@@ -138,7 +139,7 @@ function goldAchievements() {
       showConfirmButton: false,
       timer: 1000
     })
-  } else if (totalGoldCount >= 15000 && totalGoldCount < 15002) {
+  } else if (totalGoldCount >= 15000 && totalGoldCount < 15005) {
     document.getElementById("gold-3").classList.add("bg-success")
     Swal.fire({
       position: 'top-end',
@@ -146,7 +147,7 @@ function goldAchievements() {
       showConfirmButton: false,
       timer: 1500
     })
-  } else if (totalGoldCount >= 50000 && totalGoldCount < 50002) {
+  } else if (totalGoldCount >= 50000 && totalGoldCount < 50005) {
     document.getElementById("gold-4").classList.add("bg-success")
     Swal.fire({
       position: 'top-end',
@@ -154,7 +155,7 @@ function goldAchievements() {
       showConfirmButton: false,
       timer: 1000
     })
-  } else if (totalGoldCount >= 100000 && totalGoldCount < 100002) {
+  } else if (totalGoldCount >= 100000 && totalGoldCount < 100005) {
     document.getElementById("gold-5").classList.add("bg-success")
     Swal.fire({
       position: 'top-end',
@@ -246,7 +247,7 @@ function octopusAchievements() {
     document.getElementById("octopus-2").classList.add("bg-success")
     Swal.fire({
       position: 'top-end',
-      title: 'You have purchased 5 Pirate Ships!',
+      title: 'You have purchased 5 Angry Octopuses!',
       showConfirmButton: false,
       timer: 1000
     })
@@ -280,8 +281,6 @@ function parrotReady() {
     document.getElementById("buy-parrot").classList.add("invisible")
   }
 }
-
-
 
 //PIRATE HAT
 
@@ -455,5 +454,23 @@ function updateOctopusCost() {
 }
 
 
+function setCaptain(event) {
 
+  event.preventDefault()
+
+  let form = event.target
+  let captainName = form.captainName.value
+
+
+
+  document.getElementById("home-page").classList.add("hidden")
+  document.getElementById("captain-welcome").classList.remove("hidden")
+  document.getElementById("game-board").classList.remove("hidden")
+
+  let template =
+    `<h4 class="pt-0">Welcome, Captain ${captainName}</h4>`
+  document.getElementById("captain-welcome").innerHTML = template
+
+  form.reset()
+}
 
