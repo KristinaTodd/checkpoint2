@@ -38,6 +38,7 @@ function updateGoldCount() {
   maidenReady()
   shipReady()
   octopusReady()
+  saveCaptains()
 }
 
 function buyAuto(autoItem) {
@@ -454,6 +455,11 @@ function updateOctopusCost() {
 }
 
 
+//TODO storage not working - need to fix
+
+let captains = []
+loadCaptains()
+
 function setCaptain(event) {
 
   event.preventDefault()
@@ -461,7 +467,13 @@ function setCaptain(event) {
   let form = event.target
   let captainName = form.captainName.value
 
+  currentCaptain = captains.find(captain => captain.name == captainName)
 
+  if (!currentCaptain) {
+    currentCaptain = { name: captainName, currentGold: currentGoldCount, items: autoItems, parrots: parrot, hats: hat, totalGold: totalGoldCount }
+    captains.push(currentCaptain)
+    saveCaptains()
+  }
 
   document.getElementById("home-page").classList.add("hidden")
   document.getElementById("captain-welcome").classList.remove("hidden")
@@ -471,6 +483,17 @@ function setCaptain(event) {
     `<h4 class="pt-0">Welcome, Captain ${captainName}</h4>`
   document.getElementById("captain-welcome").innerHTML = template
 
+
   form.reset()
 }
 
+function saveCaptains() {
+  window.localStorage.setItem("captains", JSON.stringify(captains))
+}
+
+function loadCaptains() {
+  let captainsData = JSON.parse(window.localStorage.getItem("captains"))
+  if (captainsData) {
+    captains = captainsData
+  }
+}
